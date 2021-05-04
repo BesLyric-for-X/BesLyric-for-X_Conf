@@ -18,9 +18,7 @@
 
 - 本文档可能不提供通过编译源码进行环境配置的方法；
 - 本文档可能不提供有关已结束支持的操作系统 <sup><a href="#note_1" id="note_1_sup">[1]</a></sup> 和软件 <sup><a href="#note_2" id="note_2_sup">[2]</a></sup> <sup><a href="#note_3" id="note_3_sup">[3]</a></sup> 的内容；
-- BesLyric-for-X 仅支持 Qt 5.12.4 及更高版本；
-- BesLyric-for-X 仅支持 MSVC 14.1 及更高版本；
-- BesLyric-for-X 仅支持 Windows SDK 10.0.17763.0 及更高版本。
+- BesLyric-for-X 仅支持 Qt 5.12.4 及更高版本。
 
 <!-- omit in toc -->
 ## 目录
@@ -28,7 +26,6 @@
 - [1. 有效性参考](#1-有效性参考)
 - [2. BesLyric-for-X 项目配置](#2-beslyric-for-x-项目配置)
   - [2.1. 环境变量`B4X_DEP_PATH`](#21-环境变量b4x_dep_path)
-  - [2.2. 构建目标](#22-构建目标)
 - [3. 配置开发环境](#3-配置开发环境)
   - [3.1. C++ 开发环境](#31-c-开发环境)
     - [3.1.1. MSVC 工具集 & Windows SDK](#311-msvc-工具集--windows-sdk)
@@ -65,18 +62,6 @@
 `B4X_DEP_PATH`指向的文件夹应该按照规定的结构包含所有需要的文件（头文件、静态链接库文件和动态链接库文件）。 BesLyric-for-X 中的 qmake 指令将分别向变量`$$INCLUDEPATH`和`$$LIB`添加`%B4X_DEP_PATH%\include`和`-L%B4X_DEP_PATH%\lib`，使 Qt 和 MSVC 能够找到第三方库的头文件和静态链接库文件。
 
 不建议将该环境变量配置到操作系统或当前用户中，而是应该配置到项目内。例如，通过 Qt Creator 的左侧列表切换到“ Projects ”页面，在“ Build & Run ”-“ Build Settings ”-“ Build Environment ”或“ Project Settings ”-“ Environment ”中配置环境变量 <sup><a href="#note_7" id="note_7_sup">[7]</a></sup> 。
-
-### 2.2. 构建目标
-
-有 5 个构建目标可供使用：
-
-- `deploy_3rd_party_library_dlls`
-- `windeployqt_enhanced`
-- `deploy_CRT_dlls`
-- `deploy_UCRT_dlls`
-- `deploy_windows_dlls`
-
-其中，`deploy_windows_dlls`目标依赖于其他所有的目标，且上述所有目标均依赖于`first`目标。
 
 ## 3. 配置开发环境
 
