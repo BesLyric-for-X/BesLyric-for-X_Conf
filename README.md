@@ -25,7 +25,7 @@
 
 - [1. 有效性参考](#1-有效性参考)
 - [2. BesLyric-for-X 项目配置](#2-beslyric-for-x-项目配置)
-  - [2.1. 环境变量`B4X_PKG_CONFIG`](#21-环境变量b4x_pkg_config)
+  - [2.1. 环境变量`PATH`](#21-环境变量path)
 - [3. 配置开发环境](#3-配置开发环境)
   - [3.1. 基础设施](#31-基础设施)
     - [3.1.1. Command Line Developer Tools (CLT)](#311-command-line-developer-tools-clt)
@@ -51,13 +51,9 @@
 
 ## 2. BesLyric-for-X 项目配置
 
-### 2.1. 环境变量`B4X_PKG_CONFIG`
+### 2.1. 环境变量`PATH`
 
-在 macOS 平台，使用 Finder 启动 Qt Creator 可能会使其持有的`PATH`环境变量不包含 HomeBrew 所安装的二进制程序所在的文件夹的路径`$(brew --prefix)/bin` <sup><a href="#note_3" id="note_3_sup">[3]</a></sup> <sup><a href="#note_4" id="note_4_sup">[4]</a></sup> <sup><a href="#note_5" id="note_5_sup">[5]</a></sup> <sup><a href="#note_6" id="note_6_sup">[6]</a></sup> <sup><a href="#note_7" id="note_7_sup">[7]</a></sup> ，因此需要配置环境变量`B4X_PKG_CONFIG`，以使用 HomeBrew 安装的`pkg-config`自动配置 BesLyric-for-X 所需的第三方库。
-
-`B4X_PKG_CONFIG`的值应该为`pkg-config`的绝对路径，例如`/usr/local/bin/pkg-config`。
-
-不建议将该环境变量配置到操作系统或当前用户中，而是应该配置到项目内。例如，通过 Qt Creator 的左侧列表切换到“ Projects ”页面，在“ Build & Run ”-“ Build Settings ”-“ Build Environment ”或“ Project Settings ”-“ Environment ”中配置环境变量。
+在 macOS 平台，需要使用 Terminal 启动 Qt Creator 以使其持有的`PATH`环境变量包含 HomeBrew 所安装的二进制程序所在的文件夹的路径`$(brew --prefix)/bin` <sup><a href="#note_3" id="note_3_sup">[3]</a></sup> <sup><a href="#note_4" id="note_4_sup">[4]</a></sup> <sup><a href="#note_5" id="note_5_sup">[5]</a></sup> <sup><a href="#note_6" id="note_6_sup">[6]</a></sup> <sup><a href="#note_7" id="note_7_sup">[7]</a></sup> ，进而使用 HomeBrew 安装的`pkg-config`自动配置 BesLyric-for-X 所需的第三方库。
 
 ## 3. 配置开发环境
 
