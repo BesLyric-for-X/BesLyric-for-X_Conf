@@ -117,8 +117,7 @@ CDB 与 WinDbg 同为 Windows 上的调试器 <sup><a href="#note_8" id="note_8_
 1. 下载用于 Windows 的、 devel 版本的、用于 Visual C++ 的 [SDL 2](https://www.libsdl.org/download-2.0.php) ；
 2. 将各个文件从压缩包中按照类型提取到指定位置：
    1. 提取`\SDL2-...\include\`下的所有`.h`文件到`%B4X_DEP_PATH%\include\SDL2\`下；
-   2. 提取`\SDL2-...\lib\x64\`下的`SDL2.lib`文件到`%B4X_DEP_PATH%\lib\`下；
-   3. 提取`\SDL2-...\lib\x64\`下的`SDL2.dll`文件到`%B4X_DEP_PATH%\bin\`下。
+   2. 提取`\SDL2-...\lib\x64\`下的`SDL2.dll`和`SDL2.lib`文件到`%B4X_DEP_PATH%\lib\`下。
 
 <details open>
     <summary>SDL 2 库文件的文件夹结构如下（点击收起）：</summary>
@@ -128,15 +127,13 @@ CDB 与 WinDbg 同为 Windows 上的调试器 <sup><a href="#note_8" id="note_8_
 ```cmd
 > tree /A /F %B4X_DEP_PATH%
 .
-+---bin
-|       SDL2.dll
-|
 +---include
 |   \---SDL2
 |           SDL.h
 |           ...
 |
 \---lib
+        SDL2.dll
         SDL2.lib
 ```
 
@@ -149,8 +146,8 @@ CDB 与 WinDbg 同为 Windows 上的调试器 <sup><a href="#note_8" id="note_8_
 1. 从 [Releases · BtbN/FFmpeg-Builds](https://github.com/BtbN/FFmpeg-Builds/releases) 下载 ffmpeg-...-win64-gpl-shared-....zip ，或从 [FFmpeg Windows Builds - gyan.dev § release](https://www.gyan.dev/ffmpeg/builds/#release-section) 下载 ffmpeg-release-full-shared.7z （曾经是 [FFmpeg Builds - Zeranoe](https://ffmpeg.zeranoe.com/builds/) ）；
 2. 将各个文件从压缩包中按照类型提取到指定位置：
    1. 提取`\ffmpeg-...-shared...\include\`下的所有文件夹以及其中的文件到`%B4X_DEP_PATH%\include\`下；
-   2. 提取`\ffmpeg-...-shared...\lib\`下的所有`.lib`文件到`%B4X_DEP_PATH%\lib\`下；
-   3. 提取`\ffmpeg-...-shared...\bin\`下的所有`.dll`文件到`%B4X_DEP_PATH%\bin\`下。
+   2. 提取`\ffmpeg-...-shared...\bin\`下的所有`.dll`文件到`%B4X_DEP_PATH%\lib\`下；
+   3. 提取`\ffmpeg-...-shared...\lib\`下的所有`.lib`文件到`%B4X_DEP_PATH%\lib\`下。
 
 <details open>
     <summary>FFmpeg 4 库文件的文件夹结构如下（点击收起）：</summary>
@@ -160,16 +157,6 @@ CDB 与 WinDbg 同为 Windows 上的调试器 <sup><a href="#note_8" id="note_8_
 ```cmd
 > tree /A /F %B4X_DEP_PATH%
 .
-+---bin
-|       avcodec-58.dll
-|       avdevice-58.dll
-|       avfilter-7.dll
-|       avformat-58.dll
-|       avutil-56.dll
-|       postproc-55.dll
-|       swresample-3.dll
-|       swscale-5.dll
-|
 +---include
 |   +---libavcodec
 |   |       avcodec.h
@@ -204,13 +191,21 @@ CDB 与 WinDbg 同为 Windows 上的调试器 <sup><a href="#note_8" id="note_8_
 |           ...
 |
 \---lib
+        avcodec-58.dll
         avcodec.lib
+        avdevice-58.dll
         avdevice.lib
+        avfilter-7.dll
         avfilter.lib
+        avformat-58.dll
         avformat.lib
+        avutil-56.dll
         avutil.lib
+        postproc-55.dll
         postproc.lib
+        swresample-3.dll
         swresample.lib
+        swscale-5.dll
         swscale.lib
 ```
 
