@@ -101,7 +101,7 @@ CDB 与 WinDbg 同为 Windows 上的调试器 <sup><a href="#note_8" id="note_8_
 1. 下载用于 Windows 的、 devel 版本的、用于 Visual C++ 的 [SDL 2](https://www.libsdl.org/download-2.0.php) ；
 2. 将各个文件从压缩包中按照类型提取到指定位置：
    1. 提取`\SDL2-...\include\`下的所有`.h`文件到`%B4X_DEP_PATH%\include\SDL2\`下；
-   2. 提取`\SDL2-...\lib\x64\`下的`SDL2.lib`和`SDL2main.lib`文件到`%B4X_DEP_PATH%\lib\`下；
+   2. 提取`\SDL2-...\lib\x64\`下的`SDL2.lib`文件到`%B4X_DEP_PATH%\lib\`下；
    3. 提取`\SDL2-...\lib\x64\`下的`SDL2.dll`文件到`%B4X_DEP_PATH%\bin\`下。
 
 <details open>
@@ -122,7 +122,6 @@ CDB 与 WinDbg 同为 Windows 上的调试器 <sup><a href="#note_8" id="note_8_
 |
 \---lib
         SDL2.lib
-        SDL2main.lib
 ```
 
 </details>
